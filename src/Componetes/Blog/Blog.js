@@ -1,7 +1,7 @@
 
 const Blog = (props) => {
-    const {images, userImg, name, postDate, readTime, title, tags, id} = props.blog;
-
+    const {images, userImg, name, postDate, readTime, title, tags} = props.blog;
+    
     return (
         <div className="">
             <div className="w-full">
@@ -17,8 +17,8 @@ const Blog = (props) => {
                 </div>
                 <div className="flex items-center gap-3">
                     <p className="text-neutral-900 text-opacity-60 text-xl font-medium">{readTime} min read</p>
-                    <button onClick={() => props.bookMarked(id)} className='text-xl'>
-                        <span className=''><i className="fa-regular fa-bookmark"></i></span>
+                    <button onClick={() => props.bookMarked(props.blog)} className='text-xl'>
+                        <span className='focus:bg-green-600'><i className="fa-regular fa-bookmark"></i></span>
                     </button>
                 </div>
             </div>
@@ -28,7 +28,7 @@ const Blog = (props) => {
                 <a href="#">{tags[1]}</a>
             </div>
             <div className="text-start my-4">
-            <button className="text-indigo-600 text-xl font-semibold font-['Exo 2'] underline ">Mark as read</button>
+            <button onClick={() => props.markAsRead(props.blog)} className="text-indigo-600 text-xl font-semibold font-['Exo 2'] underline ">Mark as read</button>
             </div>
         </div>
     );
